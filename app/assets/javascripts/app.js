@@ -32,14 +32,21 @@ function($stateProvider, $urlRouterProvider){
 }])
 .controller('MainCtrl', [
 '$scope',
-'$stateParams'
+'$stateParams',
 'posts',
 function($scope, $stateParams, posts){
+  $scope.test = "Hello World."
+  $scope.post = posts.posts[$stateParams.id];
   $scope.posts = posts.posts;
 
   $scope.addPost = function() {
     if( !$scope.title || $scope.title === '') { return; }
-    $scope.posts.push({title: $scope.title, link: $scope.link, upvotes: 0});
+    $scope.posts.push({
+      title: $scope.title, link: $scope.link, upvotes: 0,
+      comments: [
+        {author: 'Kimberly', body: 'I hope I had posted this', upvotes: 0},
+        {author: 'Kelly', body: 'I rather go to a vacation', upvotes: 0}
+      ]});
     $scope.title = '';
     $scope.link = '';
   };
