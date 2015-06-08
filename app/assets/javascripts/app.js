@@ -32,11 +32,8 @@ function($stateProvider, $urlRouterProvider){
 }])
 .controller('MainCtrl', [
 '$scope',
-'$stateParams',
 'posts',
-function($scope, $stateParams, posts){
-  $scope.test = "Hello World."
-  $scope.post = posts.posts[$stateParams.id];
+function($scope, posts){
   $scope.posts = posts.posts;
 
   $scope.addPost = function() {
@@ -56,4 +53,15 @@ function($scope, $stateParams, posts){
   };
 
 }])
-.controller('PostsCtrl',[]);
+.controller('PostsCtrl', [
+'$scope',
+'$stateParams',
+'posts',
+function($scope, $stateParams, posts){
+  $scope.post = posts.posts[$stateParams.id];
+
+  $scope.incrementUpvotes = function(comment) {
+    comment.upvotes += 1;
+  };
+
+}]);
