@@ -61,6 +61,14 @@
         </span>
       </div>
 
+    <form ng-submit="addComment()" style="margin-top:30px;">
+      <h3>Add a new comment</h3>
+
+      <div class="form-group">
+        <input type="text" ng-model="body" class="form-control" placeholder="Comment">
+      </div>
+      <button type="submit" class="btn btn-primary">Add Comment</button>
+    </form>
   </script>
 
 </body>
