@@ -7,12 +7,10 @@ function($scope, posts){
 
   $scope.addPost = function() {
     if( !$scope.title || $scope.title === '') { return; }
-    $scope.posts.push({
-      title: $scope.title, link: $scope.link, upvotes: 0,
-      comments: [
-        {author: 'Kimberly', body: 'I hope I had posted this', upvotes: 0},
-        {author: 'Kelly', body: 'I rather go to a vacation', upvotes: 0}
-      ]});
+    posts.create({
+      title: $scope.title,
+      link: $scope.link
+    });
     $scope.title = '';
     $scope.link = '';
   };

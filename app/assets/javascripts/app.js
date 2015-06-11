@@ -9,6 +9,7 @@ function($stateProvider, $urlRouterProvider){
       url: '/home',
       templateUrl: 'home/_home.html',
       controller: 'MainCtrl'
+
     })
     .state('posts',{
       url: '/posts/{id}',
