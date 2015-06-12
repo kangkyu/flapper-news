@@ -7,7 +7,7 @@ function($scope, posts, post){
   $scope.post = post;
 
   $scope.incrementUpvotes = function(comment) {
-    comment.upvotes += 1;
+    posts.upvoteComment(post, comment);
   };
 
   $scope.addComment = function() {
