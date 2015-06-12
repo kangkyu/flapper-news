@@ -19,6 +19,11 @@ function($http){
       post.upvotes += 1;
     });
   };
+  o.get = function(id) {
+    return $http.get('/posts/' + id + '.json').then(function(res){  // we are instead using a promise.
+      return res.data;
+    });
+  };
 
   return o;
 }]);
