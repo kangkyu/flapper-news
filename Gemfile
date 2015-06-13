@@ -5,7 +5,7 @@ ruby '2.2.2'
 gem 'angular-rails-templates'
 gem 'responders'
 gem 'angular_rails_csrf'
-
+gem 'devise'
 
 
 
