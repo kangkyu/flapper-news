@@ -2,11 +2,18 @@ class PostsController < ApplicationController
   def upvote
     post = Post.find(params[:id])
     post.increment!(:upvotes)
-    respond_with post
+    # respond_with post
+    render json: post, status: 200
   end
 
   def create
-    respond_with Post.create(post_params)
+    # respond_with Post.create(post_params)
+    post = Post.new(post_params)
+    if post.save
+      render json: post, status: 201, location: post
+    else
+      render json: post.errors, status: 422
+    end
   end
 
   def index
@@ -18,7 +25,7 @@ class PostsController < ApplicationController
   def show
     # respond_with Post.find(params[:id])
     post = Post.find(params[:id])
-    render json: post, status: :ok
+    render json: post, status: 200
   end
 
   def post_params

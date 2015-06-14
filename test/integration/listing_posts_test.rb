@@ -7,14 +7,20 @@ class ListingPostsTest < ActionDispatch::IntegrationTest
   end
 
   test "returns list of all posts" do
-    get '/posts.json'
+    get '/posts'
     assert_equal 200, response.status
     # assert response.success?
     refute_empty response.body
   end
 
+  test "returns posts in JSON" do
+    get '/posts', {}, { 'Accept' => Mime::JSON }
+    assert_equal 200, response.status
+    assert_equal Mime::JSON, response.content_type
+  end
+
   test "returns posts with title" do
-    get '/posts.json'
+    get '/posts'
     assert response.success?
 
     posts_response = json(response.body)
@@ -24,7 +30,7 @@ class ListingPostsTest < ActionDispatch::IntegrationTest
 
   test "returns post by id" do
     post = posts(:one)
-    get "/posts/#{post.id}.json"
+    get "/posts/#{post.id}"
     assert response.success?
 
     post_response = json(response.body)
