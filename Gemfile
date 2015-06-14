@@ -43,3 +43,13 @@ group :development, :test do
   gem 'spring'
 end
 
+group :test do
+  gem 'minitest-rails'
+  gem 'minitest-reporters'
+  gem 'minitest-rails-capybara'
+end
+
+group :development do
+  gem 'guard'
+  gem 'guard-minitest'
+end

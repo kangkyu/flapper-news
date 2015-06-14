@@ -1,7 +1,11 @@
-require 'test_helper'
+require "test_helper"
 
 class PostTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def post
+    @post ||= Post.new
+  end
+
+  def test_valid
+    assert post.valid?
+  end
 end
