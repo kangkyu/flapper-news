@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :upvote]
+
   def upvote
     post = Post.find(params[:id])
     post.increment!(:upvotes)
