@@ -9,8 +9,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    # respond_with Post.create(post_params)
-    post = Post.new(post_params)
+    # respond_with Post.create(post_params.merge(user_id: current_user.id))
+    post = Post.new(post_params.merge(user: current_user))
     if post.save
       render json: post, status: 201, location: post
     else
