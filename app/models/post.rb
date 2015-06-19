@@ -6,6 +6,6 @@ class Post < ActiveRecord::Base
   validates :user, presence: true
 
   def as_json(options = {})
-    super(options.merge(include: :comments))
+    super(options.merge(include: [:user, :comments => {include: :user}]))
   end
 end
