@@ -10,8 +10,10 @@ one:
   title: "I have a dream."
   link: "http://www.ihaveadreamfoundation.org/"
   upvotes: 7
+  user: one
 
 two:
   title: "Code Review Best Practices"
   link: "http://kevinlondon.com/2015/05/05/code-review-best-practices.html"
   upvotes: 0
+  user: one

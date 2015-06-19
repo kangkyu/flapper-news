@@ -4,6 +4,7 @@ class CreatingPostsTest < ActionDispatch::IntegrationTest
 
   setup do
     host! 'example.com'
+    post_via_redirect '/users/sign_in', user: {email: users(:one).email, password: "password"}, format: :json
   end
 
   test 'creates posts' do
