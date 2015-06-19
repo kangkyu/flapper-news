@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  get 'users/:id' => 'users#show'
+
   root 'angular#index'
 
   resources :posts, only: [:create, :index, :show] do

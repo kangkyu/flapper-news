@@ -44,6 +44,11 @@ function($stateProvider, $urlRouterProvider){
           $status.go('home');
         })
       }]
+    })
+    .state('users',{
+      url: '/users/{id}',
+      templateUrl: 'users/_users.html',
+      controller: 'UsersCtrl'
     });
   $urlRouterProvider.otherwise('home');
 
